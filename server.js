@@ -6,10 +6,6 @@ const fs = require('fs');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-/* app.get('/api/customers', (req, res)=> {
-   res.send({message: 'Hello Express!'}); 
-}); */
-
 const data = fs.readFileSync('./database.json');
 const conf = JSON.parse(data);
 const mysql = require('mysql');
@@ -27,29 +23,38 @@ connection.connect();
 //const upload = multer({ dest: './upload' })
 
 
-app.get('/api/customers', (req, res) => {
+app.get('/api/showRecommend', (req, res) => {
   connection.query(
-    'select * from `show`',
+    'select * from `show` where show_id=1',
     (err, rows, fields) => {
       res.send(rows);
-      res.send(err);
     }
   );
 });
 
+app.get('/api/showAll', (req, res) => {
+  connection.query(
+    'select * from `show`',
+    (err, rows, fields) => {
+      res.send(rows);
+    }
+  );
+});
 
+app.get('/api/showselected', (req, res) => {
+  connection.query(
+    'select * from `show` where show_id=?',
+    (err, rows, fields) => {
+      res.send(rows);
+    }
+  );
+});
+//  app.use('/image', express.static('./upload'));
 
-/* app.use('/image', express.static('./upload'));
-
-app.post('/api/customers', upload.single('image'), (req, res) => {
-  let sql = 'insert into customer values (null, ?,?,?,?,?,now(),0)';
-  let image = '/image/' + req.file.filename;
-  let name = req.body.name;
-  let birthday = req.body.birthday;
-  let gender = req.body.gender;
-  let job = req.body.job;
-
-  let params = [image, name, birthday, gender, job];
+app.post('/api/showAll',(req, res) => {
+  let sql = 'select * from show where show_id = ?)';
+  let show_id = req.body3.show_id;
+  let params = [show_id];
   connection.query(sql, params,
     (err, rows, fields) => {
       res.send(rows);
@@ -59,7 +64,7 @@ app.post('/api/customers', upload.single('image'), (req, res) => {
   );
 });
 
-app.delete('/api/customers/:id',(req,res) => {
+/*app.delete('/api/customers/:id',(req,res) => {
   let sql = 'update customer set isdeleted = 1 where id = ?';
   let params = [req.params.id];
   connection.query(sql, params,

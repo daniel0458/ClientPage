@@ -22,7 +22,7 @@ const Menu = () => {
             </ul>
             <hr />
         </div>
-    );
-};
+    )
+}
 
 export default Menu;

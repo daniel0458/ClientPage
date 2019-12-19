@@ -6,11 +6,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableBody from '@material-ui/core/TableBody';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
-import CircularProgress from '@material-ui/core/CircularProgress';
 
-const styles = theme => ({
-
-})
 class Mypage extends Component {
     constructor(props) {
       super(props);
@@ -40,7 +36,6 @@ class Mypage extends Component {
       return body
     }
     render() {
-      const { classes } = this.props;
       const cellList = ["공연번호", "극단번호", "장르번호", "제목", "시작일자", "종료일자", "미리보기","공연내용"];
   
       return (

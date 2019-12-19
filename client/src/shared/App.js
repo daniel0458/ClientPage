@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { Home, About, Posts, Mypage } from '../pages';
+import { Home, About, Posts, Mypage, EntireShowAll } from '../pages';
 import Menu from '../components/Menu';
 
 class App extends Component {
@@ -15,6 +15,8 @@ class App extends Component {
                 </Switch>
                 <Route path="/posts" component={Posts}/>
                 <Route path="/mypage" component={Mypage}/>
+                <Route path="/entireShowAll" component={EntireShowAll}/>
+                
             </div>
         );
     }
