@@ -1,6 +1,6 @@
 import React from 'react';
 import TableRow from '@material-ui/core/TableRow';
-import Tablecell from '@material-ui/core/TableCell';
+import Tablecell from '@material-ui/core/Tablecell';
 
 class Customer extends React.Component {
     render() {
@@ -14,7 +14,8 @@ class Customer extends React.Component {
                 <Tablecell>{this.props.end_date}</Tablecell>
                 <Tablecell><img src={this.props.image} alt="이미지없음" /></Tablecell>
                 <Tablecell>{this.props.show_content}</Tablecell>
-                <Tablecell>내용</Tablecell>
+                <Tablecell>{this.props.show_thumbnail}</Tablecell>
+   
             </TableRow>
 
         )

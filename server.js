@@ -32,12 +32,39 @@ app.get('/api/customers', (req, res) => {
     'select * from `show`',
     (err, rows, fields) => {
       res.send(rows);
-      res.send(err);
+      // res.send(err);
     }
   );
 });
 
 
+ app.get('/api/myshows',(req,res) => {
+   connection.query(
+     // "select show_title, start_date, end_date from showdb.show",
+   'select show_id, ticketing_date, refund_flag from `ticketing`',
+    (err,rows,fields) => {
+       res.send(rows);
+    }
+  )
+ });
+
+// app.get('api/passwords',(req,res) => {
+//   connection.query(
+//     "select *  from `user` where user_id =?  and password=?",
+//     (err,rows,fields) => {
+//       res.send(rows);
+//     }
+//   )
+// });
+
+app.get('api/informations',(req,res) => {
+  connection.query(
+    'select * from `user` left outer join `exclude_show` on user.user_id = exclude_show.user_id',
+    (err,rows,fields) => {
+      res.send(rows);
+    }
+  )
+});
 
 /* app.use('/image', express.static('./upload'));
 

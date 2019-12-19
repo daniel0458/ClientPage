@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import Customer from '../components/Customer';
 import Paper from '@material-ui/core/Paper';
 import Table from '@material-ui/core/Table';
-import TableHead from '@material-ui/core/TableHead';
+// import TableHead from '@material-ui/core/TableHead';
 import TableBody from '@material-ui/core/TableBody';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
-import CircularProgress from '@material-ui/core/CircularProgress';
+// import CircularProgress from '@material-ui/core/CircularProgress';
 import { NavLink } from 'react-router-dom';
-import { withStyles } from '@material-ui/core/styles';
+// import { withStyles } from '@material-ui/core/styles';
 
 class Home extends Component {
   constructor(props) {
@@ -39,7 +39,7 @@ class Home extends Component {
     return body
   }
   render() {
-    const { classes } = this.props;
+    // const { classes } = this.props;
 
     return (
       <div>

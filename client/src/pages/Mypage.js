@@ -6,11 +6,9 @@ import TableHead from '@material-ui/core/TableHead';
 import TableBody from '@material-ui/core/TableBody';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
-import CircularProgress from '@material-ui/core/CircularProgress';
+// import CircularProgress from '@material-ui/core/CircularProgress';
 
-const styles = theme => ({
 
-})
 class Mypage extends Component {
     constructor(props) {
       super(props);
@@ -40,8 +38,8 @@ class Mypage extends Component {
       return body
     }
     render() {
-      const { classes } = this.props;
-      const cellList = ["공연번호", "극단번호", "장르번호", "제목", "시작일자", "종료일자", "미리보기","공연내용"];
+      // const { classes } = this.props;
+      const cellList = ["공연번호", "극단번호", "장르번호", "제목", "시작일자", "종료일자", "미리보기","공연내용", "썸네일"];
   
       return (
         <div>
@@ -50,7 +48,7 @@ class Mypage extends Component {
               <TableHead>
                 <TableRow>
                   {cellList.map(c => {
-                    return <TableCell key={c.toString()} >{c}</TableCell>
+                    return <TableCell key={c.toString()}>{c}</TableCell>
                   })}
                 </TableRow>
   
@@ -58,7 +56,7 @@ class Mypage extends Component {
               <TableBody>
                 {this.state.customers ? this.state.customers.map(c => {
                   return <Customer key={c.show_id} show_id={c.show_id} troup_id={c.troup_id} genre_id={c.genre_id} show_title={c.show_title}
-                    start_date={c.start_date} end_date={c.end_date} show_preview={c.show_preview} show_content={c.show_content} />
+                    start_date={c.start_date} end_date={c.end_date} show_preview={c.show_preview} show_content={c.show_content} show_thumbnail={c.show_thumbnail} />
                 }) : "no data"}
               </TableBody>
             </Table>
