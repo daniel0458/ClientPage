@@ -27,7 +27,7 @@
         "react-kakao-map": "^0.0.0",
         "react-kakao-maps": "Musma/react-kakao-maps",
         "react-router-dom": "^5.1.2",
-        "yarn": "^1.21.1"
+        "yarn": "^1.22.0"
     },
     "devDependencies": {
         "concurrently": "^5.0.2"
